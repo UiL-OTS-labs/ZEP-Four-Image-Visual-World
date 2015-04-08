@@ -31,8 +31,10 @@ enum ItemType
 
 enum ScreenLocation
 {
-   LEFT,
-   RIGHT
+   TOP_LEFT,
+   TOP_RIGHT,
+   BOTTOM_LEFT,
+   BOTTOM_RIGHT
 }
 
 // Item record used for the test phase item table.
@@ -43,6 +45,8 @@ record TestItem
     int             target_onset;      
     string      image_filename1;          // image stimulus filename
     string      image_filename2;          // image stimulus filename
+    string      image_filename3;          // image stimulus filename
+    string      image_filename4;          // image stimulus filename
     string      sound_filename;          // sound stimulus filename
     bool        record_eye_movements;         // if set, record eye movements
     bool        do_drift_check;       // if set, perform drift check

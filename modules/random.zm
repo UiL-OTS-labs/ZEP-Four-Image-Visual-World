@@ -82,7 +82,7 @@ void dump_test_items(int lst)
         "n" + "\t" +
         "type" + "\t" +
         "id" + "\t" +
-        "image_filename" + "\t" +
+        "image_filename" + "\t\t\t\t" +
         "sound_filename"
         );
 
@@ -93,6 +93,8 @@ void dump_test_items(int lst)
             string(test_items[lst][n].id) + "\t" +
             string(test_items[lst][n].image_filename1) + "\t" +
             string(test_items[lst][n].image_filename2) + "\t" +
+            string(test_items[lst][n].image_filename3) + "\t" +
+            string(test_items[lst][n].image_filename4) + "\t" +
             string(test_items[lst][n].sound_filename)
    );
         n++;

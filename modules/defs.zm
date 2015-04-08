@@ -56,4 +56,4 @@ const dur       RESPONSE_DURATION               = 0ms;          // self-paced
 
 const bool	SELECT_ITEMS_BY_MOUSE = false;
 
-const bool	HIGHLIGHT_REGION_OF_INTEREST = false;
+const bool	HIGHLIGHT_REGION_OF_INTEREST = true;
