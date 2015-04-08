@@ -50,6 +50,10 @@ record TestItem
     string      sound_filename;          // sound stimulus filename
     bool        record_eye_movements;         // if set, record eye movements
     bool        do_drift_check;       // if set, perform drift check
+
+    string      qtext;
+    string      qword;
+    bool        qanswer;
 }
 
 // Item table used in the practice phase before the test phase.

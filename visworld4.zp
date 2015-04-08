@@ -63,6 +63,7 @@ import texts_en;
 import eyetracker_eyelink;
 //import eyetracker_tobii;
 import test_page;
+import choose_1of2_page;
 
 
 Experiment experiment
@@ -174,6 +175,27 @@ Experiment experiment
                 on_event:entry()
                 {
                     test_page.action(this, current_item, reference_time, test.cycle);
+                }
+            }
+
+            TransientPart
+            {
+                on_event:entry()
+                {
+                    // Check if we need to ask a comprehension question.
+                    if (test_page.response.recalibrate || ( length(current_item.qtext) == 0 && length(current_item.qword) == 0))
+                        recalibrate_check.enter();  // No question. Trial done.
+                }
+            }
+
+             SubTrial question
+            {
+                on_event:entry()
+                {
+                    choose_1of2_page.set_text(current_item.qtext + "\n" + "\n" + current_item.qword);
+                    choose_1of2_page.set_label_texts(YES_BUTTON_TEXT, NO_BUTTON_TEXT);
+                    choose_1of2_page.set_keys(KEY_Shift_L, KEY_Shift_R);
+                    choose_1of2_page.action(this, current_item.qanswer ? 1 : 2 );// 1 = yes, 2 = no
                 }
             }
 
@@ -306,6 +328,35 @@ Experiment experiment
                 on_event:entry()
                 {
                     test_page.action(this, current_item, reference_time, test.cycle);
+                }
+            }
+
+            TransientPart
+            {
+                on_event:entry()
+                {
+                    // Check if we need to ask a comprehension question.
+                    if (test_page.response.recalibrate || ( length(current_item.qtext) == 0 && length(current_item.qword) == 0))
+                        recalibrate_check.enter();  // No question. Trial done.
+                }
+            }
+
+             SubTrial question
+            {
+                on_event:entry()
+                {
+                    choose_1of2_page.set_text(current_item.qtext + "\n" + "\n" + current_item.qword);
+                    choose_1of2_page.set_label_texts(YES_BUTTON_TEXT, NO_BUTTON_TEXT);
+                    choose_1of2_page.set_keys(KEY_Shift_L, KEY_Shift_R);
+                    choose_1of2_page.action(this, current_item.qanswer ? 1 : 2 );// 1 = yes, 2 = no
+                }
+
+                on_event:exit()
+                {
+                    current_output.qanswer = current_item.qanswer;
+                    current_output.qvalue = choose_1of2_page.response.value == 1;
+                    current_output.qrt = choose_1of2_page.response.rt;
+                    current_output.qcorrect = choose_1of2_page.response.correct;
                 }
             }
 

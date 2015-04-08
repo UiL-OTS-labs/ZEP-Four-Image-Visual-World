@@ -19,6 +19,11 @@ record TestOutput
 
     int         value;          // response value: 1=L,2=R,-1=timeout
     int         rt;             // response time [ms]
+
+    bool qanswer; 
+    bool qvalue;
+    bool qrt;
+    bool qcorrect;
 }
 
 

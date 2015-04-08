@@ -1,5 +1,5 @@
 #Experiment:
-Four Image Visual World
+Four Image Visual World with question
 
 #Description:
 Purpose of this experiment is to record participant's eye-movements
@@ -8,6 +8,8 @@ screen displaying a semi-realistic scene. For each trial a scene
 is displayed and an utterance relating to the scene is played. 
 Participant's task is to carefully look and listen. Self-paced. 
 Output: Eye-Tracking data as collected by the eye-tracker.
+
+Followed by a question page where the participant can choose 1 of 2 options. Question page will be left empty if the qtext and qword are left empty.
 
 #Pseudorandomisation
 Current pseudorandomisation rules:
@@ -34,10 +36,13 @@ This will output pictures (PNG) in
  You might need to change the name of the directories based on your postprocessing of choice.
 
 #Author:
+Chris van Run
 
 #Client:
-  
+Rachel Gargiulo
+
 #Supervisor:
+Iris Mulders
 
 #References:
 Huettig, F., Rommers, J., Meyer, A.S. (2011).

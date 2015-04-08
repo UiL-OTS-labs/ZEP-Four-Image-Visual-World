@@ -19,8 +19,8 @@ HISTORY:
 const string    CONTINUE_BUTTON_TEXT            = "Continue";
 const string    NEXT_BUTTON_TEXT                = "Next";
 const string    REPEAT_BUTTON_TEXT              = "Repeat";
-const string    YES_BUTTON_TEXT                 = "Yes";
-const string    NO_BUTTON_TEXT                  = "No";
+const string    YES_BUTTON_TEXT                 = " Yes ";
+const string    NO_BUTTON_TEXT                  = " No ";
 const string    TRUE_BUTTON_TEXT                = "True";
 const string    FALSE_BUTTON_TEXT               = "False";
 const string    CORRECT_BUTTON_TEXT             = "Correct";

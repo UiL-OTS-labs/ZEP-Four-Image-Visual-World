@@ -46,7 +46,7 @@ const dur       RECORD_EXTRA_AFTER_RESPONSE = 100ms;
 
 // Delay from auditory target onset to response interval. Negative means
 // allow responding before the target begins. 
-// The resulting shift will never be earlier than audio stimulus onset. 
+// The resulting shift will never result in a time earlier than audio stimulus onset, if it does it sets to the onset automatically.
 const dur       RESPONSE_SHIFT                  = -100ms;
 
 // Duration of the response interval. A value of 0ms means there is no
@@ -56,4 +56,4 @@ const dur       RESPONSE_DURATION               = 0ms;          // self-paced
 
 const bool	SELECT_ITEMS_BY_MOUSE = false;
 
-const bool	HIGHLIGHT_REGION_OF_INTEREST = true;
+const bool	HIGHLIGHT_REGION_OF_INTEREST = false;
