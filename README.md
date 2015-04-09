@@ -11,6 +11,10 @@ Output: Eye-Tracking data as collected by the eye-tracker.
 
 Followed by a question page where the participant can choose 1 of 2 options. Question page will be left empty if the qtext and qword are left empty.
 
+Note: button box orientation is with the cable on the RIGHT.
+Then the left button is the left choice and the right button the right choice.
+
+
 #Pseudorandomisation
 Current pseudorandomisation rules:
 * First item must be a filler item.
