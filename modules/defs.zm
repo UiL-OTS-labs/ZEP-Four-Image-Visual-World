@@ -29,7 +29,6 @@ const bool      SHOW_ASSIGNED_GROUP             = true;
 // Number of result tables to generate. 
 const int       NUM_RESULT_TABLES               = 1;
 
-
 // The following are timing parameters and other settings.
 
 // Duration of the interval between two trials.
@@ -51,8 +50,8 @@ const dur       RESPONSE_SHIFT                  = -100ms;
 
 // Duration of the response interval. A value of 0ms means there is no
 // timeout.
-//const dur       RESPONSE_DURATION               = 5000ms;       // auto-paced
-const dur       RESPONSE_DURATION               = 0ms;          // self-paced
+const dur       RESPONSE_DURATION               = 2000ms;       // auto-paced
+//const dur       RESPONSE_DURATION               = 0ms;          // self-paced
 
 const bool	SELECT_ITEMS_BY_MOUSE = false;
 
