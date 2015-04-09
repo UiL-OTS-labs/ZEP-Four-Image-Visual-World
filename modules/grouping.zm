@@ -3,8 +3,6 @@ enum TestGroup
 {
     GRP1,
     GRP2,
-    GRP3,
-    GRP4,
 }
 
 

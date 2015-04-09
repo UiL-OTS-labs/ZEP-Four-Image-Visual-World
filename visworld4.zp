@@ -59,7 +59,8 @@ import std_etcal_page;
 import std_sound_output_device;
 
 //specials:
-import texts_en;
+//import texts_en;
+import texts_nl;
 import eyetracker_eyelink;
 //import eyetracker_tobii;
 import test_page;
