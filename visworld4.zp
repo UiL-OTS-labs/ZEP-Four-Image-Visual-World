@@ -15,6 +15,9 @@ is displayed and an utterance relating to the scene is played.
 Participant's task is to carefully look and listen. Self-paced. 
 Output: Eye-Tracking data as collected by the eye-tracker.
 
+Note: button box orientation is with the cable on the RIGHT.
+
+Then the left button is the left choice and the right button the right choice.
 
 Global structure of experiment:
 

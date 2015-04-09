@@ -41,6 +41,11 @@ Page choose_1of2_page
             handle_special_key(this, input_key, input_modifiers);
     }
 
+     on_event:message()
+    {
+        if (message_sender == control)
+            response.process_hit(message_arg, event_time);
+    }
 
     VerticalLayout layout
     {
@@ -163,6 +168,10 @@ Page choose_1of2_page
     {
         signal_target(msgid);   // Tell caller we're done.
         target = null;
+
+        if(control.target == this)
+            control.target = null;
+        control.button_box.disable_buttons();
     }
 
 
@@ -213,6 +222,12 @@ Page choose_1of2_page
     {
         response.clear();
         response.goodvalue = correct;
+
+        // Enable button-box buttons.
+        control.target = this;
+        control.button_box.disable_buttons();
+        control.button_box.enable_button(0,1);
+        control.button_box.enable_button(1,2);
 
         // Force page show delay and transition duration in sane range.
         if (showdelay < 0s) showdelay = page_transition_delay;
