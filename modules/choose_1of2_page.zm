@@ -50,7 +50,6 @@ Page choose_1of2_page
             options = LAYOUT_SHRINK_ITEMS;
         }
 
-
         LabelGadget message
         {
             init()
