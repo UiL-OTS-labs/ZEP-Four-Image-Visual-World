@@ -187,7 +187,7 @@ Experiment experiment
                 on_event:entry()
                 {
                     // Check if we need to ask a comprehension question.
-                    if (test_page.response.recalibrate && ( length(current_item.qtext) == 0 && length(current_item.qword) == 0))
+                    if (test_page.response.recalibrate || ( length(current_item.qtext) == 0 && length(current_item.qword) == 0))
                         recalibrate_check.enter();  // No question. Trial done.
                 }
             }
@@ -340,7 +340,7 @@ Experiment experiment
                 on_event:entry()
                 {
                     // Check if we need to ask a comprehension question.
-                    if (test_page.response.recalibrate && ( length(current_item.qtext) == 0 && length(current_item.qword) == 0))
+                    if (test_page.response.recalibrate || ( length(current_item.qtext) == 0 && length(current_item.qword) == 0))
                         recalibrate_check.enter();  // No question. Trial done.
                 }
             }
