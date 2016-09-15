@@ -273,6 +273,7 @@ Experiment experiment
 
                 //test specific output:
                 current_output.value = test_page.response.value;
+                current_output.correct = test_page.response.correct;
                 current_output.rt = test_page.response.rt;
 
                 test_output_append(current_output);

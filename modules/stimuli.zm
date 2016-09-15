@@ -48,6 +48,7 @@ record TestItem
     string      image_filename3;          // image stimulus filename
     string      image_filename4;          // image stimulus filename
     string      sound_filename;          // sound stimulus filename
+    int         expected_answer;
     bool        record_eye_movements;         // if set, record eye movements
     bool        do_drift_check;       // if set, perform drift check
 }

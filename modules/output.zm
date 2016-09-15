@@ -18,6 +18,7 @@ record TestOutput
     string      image_filename4;          // image stimulus filename
 
     int         value;          // response value: 1=L,2=R,-1=timeout
+    int         correct;
     int         rt;             // response time [ms]
 }
 

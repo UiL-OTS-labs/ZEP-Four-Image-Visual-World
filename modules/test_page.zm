@@ -374,7 +374,7 @@ Page test_page
             {
                 value = val;
                 rt = int(reaction_time(0));             
-                correct = val;
+                correct = val == item.expected_answer;
 
                 ignore_remaining_hits();
                 auditory_stimulus.abort();         
