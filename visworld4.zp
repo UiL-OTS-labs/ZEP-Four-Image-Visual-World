@@ -173,7 +173,7 @@ Experiment experiment
             {
                 on_event:entry()
                 {
-                    test_page.action(this, current_item, reference_time, test.cycle);
+                    test_page.action(this, current_item, reference_time, practice.cycle);
                 }
             }
 

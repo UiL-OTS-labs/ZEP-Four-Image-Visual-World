@@ -1,4 +1,4 @@
-requires 1.10;
+requires 1.12;
 
 //standards:
 import std_windows1;
@@ -21,6 +21,17 @@ Experiment experiment
     {   
         show_test_windows();
         println("Selected group/list: " + selected_group);
+    }
+
+    string current_data_dir() {
+
+        string dir = "data/visworldx/img/selected_group_"+ selected_group + '/';
+
+        if( !file_exists(dir) )
+        {
+            create_dir_tree(dir);
+        }
+        return dir;
     }
 
     Block practice
@@ -49,11 +60,8 @@ Experiment experiment
             SubTrial presentation
             {
                 on_event:entry()
-                {	
-                	 string dir = data_dir() + "visworldx/img/";
-                	 create_file(dir + "selected_group_" + selected_group);
-                	 
-                       test_page.quick_show_and_save_picture(this, current_item, reference_time, test.cycle, dir);
+                {   
+                    test_page.quick_show_and_save_picture(this, current_item, reference_time, test.cycle, current_data_dir());
                 }
             }
         }
@@ -62,8 +70,8 @@ Experiment experiment
     Block test
     {
         on_event:entry()
-        {	
-            num_cycles = test_items[selected_group].size;
+        {   
+            num_cycles = test_items.size;
             test_page.setup(num_cycles);
         }
 
@@ -88,8 +96,7 @@ Experiment experiment
             {
                 on_event:entry()
                 {
-                	string dir = data_dir() + "visworldx/img/";
-                       test_page.quick_show_and_save_picture(this, current_item, reference_time, test.cycle, dir);
+                    test_page.quick_show_and_save_picture(this, current_item, reference_time, test.cycle, current_data_dir());
                 }
             }
         }

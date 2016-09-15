@@ -124,6 +124,8 @@ Page test_page
 
                  on_event:start()
                 {
+                    regions_of_interests.reload();
+
                     int dt = int(now() - start_time);
                     eyetracker.print_to_data_file(start_time, "SYNCTIME " + string(dt));
                     eyetracker.print_to_data_file(start_time, string(dt) + " DISPLAY ON");
@@ -282,7 +284,6 @@ Page test_page
 
                 stimuli.load_all_images(filenames);
  
-                regions_of_interests.reload();
                 regions_of_interests.start(t);
 
                  if(HIGHLIGHT_REGION_OF_INTEREST)
@@ -452,11 +453,9 @@ Page test_page
             show_cursor();
     }
 
-    void quick_show_and_save_picture(Object caller, TestItem it, time tref, int count=-1, string output_directory = "/pictures")
+    void quick_show_and_save_picture(Object caller, TestItem it, time tref, int count=-1, string output_directory = "/pictures", dur allowed_time_to_export= 500ms)
     {
         item = it;
-
-        dur allowed_time_to_export= 100ms; //depending on the render speed of png export we need to delay
 
         // Show this page (if not yet done) and make tref the trial start time.
         tref = test_window1.show_test_page(this, tref + allowed_time_to_export);
