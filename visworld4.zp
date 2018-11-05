@@ -128,11 +128,10 @@ Experiment experiment
             experiment.open_data_file();
 
             num_cycles = test_prac_items.size;
-
-            // Setup the progress progress bar with the number of cycles of
-            // the practice block, if you use -1 instead of num cycles the
-            // progress bar will be hidden.
-            test_page.setup(num_cycles);
+            
+            // Enable progress bar.
+            //test_page.setup(num_cycles);
+            // Disable progress bar
             test_page.setup(-1);
         }
 
@@ -228,10 +227,9 @@ Experiment experiment
 
             num_cycles = test_items[selected_group].size;
             
-            // Setup the progress progress bar with the number of cycles of
-            // the test block. If you use -1 instead of num_cycles, then
-            // the progress bar will be hidden.
-            test_page.setup(num_cycles);
+            // Enable progress bar.
+            //test_page.setup(num_cycles);
+            // Disable progress bar
             test_page.setup(-1);
         }
 
