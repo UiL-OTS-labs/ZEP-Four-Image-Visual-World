@@ -4,22 +4,23 @@
 
 record TestOutput
 {
-    int         trialnum;       // trial number
+    int         trialnum;               // trial number
 
-    int         id;             // item id
-    ItemType    type;           // item type (condition)
-    bool        recorded_eye_movements;         // if set, record eye movements
+    int         id;                     // item id
+    ItemType    type;                   // item type (condition)
+    bool        recorded_eye_movements; // if set, record eye movements
     bool        did_drift_check;
-    string      sound_filename;          // sound stimulus filename
-    int         target_onset;       // onset of target in sentence
-    string      image_filename1;          // image stimulus filename
-    string      image_filename2;          // image stimulus filename
-    string      image_filename3;          // image stimulus filename
-    string      image_filename4;          // image stimulus filename
+    string      sound_filename;         // sound stimulus filename
+    int         target_onset;           // onset of target in sentence
+    string      image_filename1;        // image stimulus filename
+    string      image_filename2;        // image stimulus filename
+    string      image_filename3;        // image stimulus filename
+    string      image_filename4;        // image stimulus filename
 
-    int         value;          // response value: 1=L,2=R,-1=timeout
+    int         expected_response;      // The response that would be correct.
+    int         value;                  // response value: 1,2,3,4 or -1=timeout
     int         correct;
-    int         rt;             // response time [ms]
+    int         rt;                     // response time [ms]
 }
 
 

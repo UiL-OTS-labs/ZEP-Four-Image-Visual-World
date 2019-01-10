@@ -258,11 +258,22 @@ Experiment experiment
 
                 // Add begin of trial message to eye-tracker data file for
                 // analysis with the Fixation tool (Cozijn 1994).
-                eyetracker.print_to_data_file("trialbeg " +  string(test.cycle + 1) + " " + format(current_item.id,3) + " " + string(current_item.type));
-                eyetracker.print_to_data_file("plafile " + string(current_item.type) + format(current_item.id,3) + ".bmp");
-                eyetracker.print_to_data_file("wavfile " + current_item.sound_filename);
+                eyetracker.print_to_data_file(
+                    "trialbeg " +  string(test.cycle + 1) + " " +
+                    format(current_item.id,3) + " " +
+                    string(current_item.type)
+                    );
+                eyetracker.print_to_data_file(
+                    "plafile " + string(current_item.type) +
+                    format(current_item.id,3) + ".bmp"
+                    );
+                eyetracker.print_to_data_file(
+                    "wavfile " + current_item.sound_filename
+                    );
 
-                eyetracker.set_tracker_status_message("Test trial " + string(test.cycle+1));
+                eyetracker.set_tracker_status_message(
+                    "Test trial " + string(test.cycle+1)
+                    );
             }
 
             on_event:exit()
@@ -282,6 +293,7 @@ Experiment experiment
                 current_output.did_drift_check = current_item.do_drift_check;
 
                 //test specific output:
+                current_output.expected_response = current_item.expected_answer;
                 current_output.value = test_page.response.value;
                 current_output.correct = test_page.response.correct;
                 current_output.rt = test_page.response.rt;
@@ -289,7 +301,11 @@ Experiment experiment
                 test_output_append(current_output);
 
                 // Add end of trial message.
-                eyetracker.print_to_data_file("trialend " + string(test.cycle + 1) + " " + format(current_item.id,3) + " " + string(current_item.type));
+                eyetracker.print_to_data_file(
+                    "trialend " + string(test.cycle + 1) + " " +
+                    format(current_item.id,3) + " " +
+                    string(current_item.type)
+                    );
 
                 eyetracker.set_tracker_status_message("");
             }
@@ -360,21 +376,24 @@ Experiment experiment
 
     void open_data_file()
     {
-         int listnum = selected_group + 1;
-            int recordingnum = 1;
-            string edfname =
-                format(expdb.experiment.session.id, 4) + "_" +
-                format(listnum, 2) + "_" +
-                format(recordingnum, 2);
+        int listnum = selected_group + 1;
+        int recordingnum = 1;
+        string edfname =
+            format(expdb.experiment.session.id, 4) + "_" +
+            format(listnum, 2) + "_" +
+            format(recordingnum, 2);
 
-            // Let eye-tracker open a data file.
-            eyetracker.open_data_file(
-                edfname,
-                expdb.experiment.id,
-                expdb.researcher.id,
-                expdb.participant.id,
-                expdb.experiment.session.id,
-                listnum, recordingnum);
-                eyetracker.print_to_data_file(expdb.experiment.id);
+        // Let eye-tracker open a data file.
+        eyetracker.open_data_file(
+            edfname,
+            expdb.experiment.id,
+            expdb.researcher.id,
+            expdb.participant.id,
+            expdb.experiment.session.id,
+            listnum,
+            recordingnum
+            );
+       eyetracker.print_to_data_file(expdb.experiment.id);
     }
 }
+
