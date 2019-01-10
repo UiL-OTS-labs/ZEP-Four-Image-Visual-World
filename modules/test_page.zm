@@ -28,8 +28,10 @@ Page test_page
     
     on_event:button_press()
     {
-        if(SELECT_ITEMS_BY_MOUSE) {}
+        if(SELECT_ITEMS_BY_MOUSE)
+        {
             handle_mouse_click(input_pointer_x, input_pointer_y, event_time);
+        }
     }
 
     on_event:key_press()
@@ -38,9 +40,9 @@ Page test_page
             response.process_hit(1, event_time);
         else if (input_key == KEY_KP_5)
             response.process_hit(2, event_time);
-         else if (input_key == KEY_KP_1)
+        else if (input_key == KEY_KP_1)
             response.process_hit(3, event_time);
-         else if (input_key == KEY_KP_2)
+        else if (input_key == KEY_KP_2)
             response.process_hit(4, event_time);
         else if (!eyetracker.handle_key(input_key, input_modifiers)) 
             handle_special_key(this, input_key, input_modifiers);
@@ -56,15 +58,15 @@ Page test_page
 
     void handle_eyetracker_message()
     {
-            if (message_arg == DRIFT_CHECK_DONE)
-                start_actual_presentation();
-            else if (message_arg == RECALIBRATE)
-                cancel_to_recalibrate();
+        if (message_arg == DRIFT_CHECK_DONE)
+            start_actual_presentation();
+        else if (message_arg == RECALIBRATE)
+            cancel_to_recalibrate();
     }
 
     void handle_control_message()
     {
-            response.process_hit(message_arg, event_time);
+        response.process_hit(message_arg, event_time);
     }
 
     void handle_mouse_click(int x, int y, time time_reference)
@@ -92,224 +94,224 @@ Page test_page
 
     StackLayout layout
     {
-            int get_mid_x_coor()
+        int get_mid_x_coor()
+        {
+            return stimuli.x_abs+(stimuli.actual_width/2); 
+        }
+
+        int get_mid_y_coor()
+        {
+            return stimuli.y_abs+(stimuli.actual_height/2); 
+        }
+
+        VerticalLayout background
+        {
+            CanvasGadget
             {
-                return stimuli.x_abs+(stimuli.actual_width/2); 
-            }
-
-            int get_mid_y_coor()
-            {
-                return stimuli.y_abs+(stimuli.actual_height/2); 
-            }
-
-            VerticalLayout background
-            {
-                CanvasGadget
-                {
-                    init()
-                    {
-                        fill_pattern_color = color:white;
-                        size = 800, 800;
-                    }
-                }
-            }
-
-            HorGridLayout stimuli
-            {
-                 init()
-                {
-                    wrap_count = 2;
-                    is_visible = false;
-                }
-
-                 on_event:start()
-                {
-                    regions_of_interests.reload();
-
-                    int dt = int(now() - start_time);
-                    eyetracker.print_to_data_file(start_time, "SYNCTIME " + string(dt));
-                    eyetracker.print_to_data_file(start_time, string(dt) + " DISPLAY ON");
-                }
-
-                 CanvasGadget image1canvas
-                {
-                    init()
-                    {
-                        size = 400, 400;
-                        offset_x = floor(width / 2);
-                        offset_y = floor(height / 2);
-                    }
-
-                    ImageShape image1
-                    {
-                        init()
-                        {
-                            is_visible=true;
-                        }
-                    }
-                }
-
-                 CanvasGadget image2canvas
-                {
-                    init()
-                    {
-                        size = 400, 400;
-                        offset_x = floor(width / 2);
-                        offset_y = floor(height / 2);
-                    }
-
-                    ImageShape image2
-                    {
-                        init()
-                        {
-                            is_visible=true;
-                        }
-                    }
-                }
-
-                 CanvasGadget image3canvas
-                {
-                    init()
-                    {
-                        size = 400, 400;
-                        offset_x = floor(width / 2);
-                        offset_y = floor(height / 2);
-                    }
-
-                    ImageShape image3
-                    {
-                        init()
-                        {
-                            is_visible=true;
-                        }
-                    }
-                }
-
-                 CanvasGadget image4canvas
-                {
-                    init()
-                    {
-                        size = 400, 400;
-                        offset_x = floor(width / 2);
-                        offset_y = floor(height / 2);
-                    }
-
-                    ImageShape image4
-                    {
-                        init()
-                        {
-                            is_visible=true;
-                        }
-                    }
-                }
-
-                void load_all_images(string[] filenames)
-                {
-                    load_image(image1canvas.image1, filenames[TOP_LEFT]);
-                    load_image(image2canvas.image2, filenames[TOP_RIGHT]);
-                    load_image(image3canvas.image3, filenames[BOTTOM_LEFT]);
-                    load_image(image4canvas.image4, filenames[BOTTOM_RIGHT]);
-                }
-
-                void load_image(ImageShape target_image, string filename)
-                {
-                    target_image.image = stimuli_dir() + "/images/" + filename;
-
-                    target_image.x = floor(-target_image.actual_width / 2);
-                    target_image.y = floor(-target_image.actual_height / 2);
-                }
-            }
-
-            FreeLayout regions_of_interests
-            {
-                CanvasGadget[..] regions;
-                int[..] response_codes;
-
                 init()
                 {
-                    regions.size = 4;
-                    response_codes.size = 4;
-                    regions[0] = region1; response_codes[0] = 1;
-                    regions[1] = region2; response_codes[1] = 2;
-                    regions[2] = region3; response_codes[2] = 3;
-                    regions[3] = region4; response_codes[3] = 4;
+                    fill_pattern_color = color:white;
+                    size = 800, 800;
+                }
+            }
+        }
+
+        HorGridLayout stimuli
+        {
+            init()
+            {
+                wrap_count = 2;
+                is_visible = false;
+            }
+
+            on_event:start()
+            {
+                regions_of_interests.reload();
+
+                int dt = int(now() - start_time);
+                eyetracker.print_to_data_file(start_time, "SYNCTIME " + string(dt));
+                eyetracker.print_to_data_file(start_time, string(dt) + " DISPLAY ON");
+            }
+
+            CanvasGadget image1canvas
+            {
+                init()
+                {
+                    size = 400, 400;
+                    offset_x = floor(width / 2);
+                    offset_y = floor(height / 2);
                 }
 
-                void highlight_regions()
+                ImageShape image1
                 {
-                    int index = 0;
-                    while(index<regions.size)
+                    init()
                     {
-                        regions[index].border_style = BORDER_DOTTED;
-                        regions[index].border = 5;
-                        regions[index].border_color = color:red;
-                        index++;
+                        is_visible=true;
                     }
                 }
+            }
 
-                CanvasGadget region1 {}
-                CanvasGadget region2 {}
-                CanvasGadget region3 {}
-                CanvasGadget region4 {}
-
-                void reload()
+            CanvasGadget image2canvas
+            {
+                init()
                 {
-                    copy_properties_from_to(stimuli.image1canvas, region1);
-                    copy_properties_from_to(stimuli.image2canvas, region2);
-                    copy_properties_from_to(stimuli.image3canvas, region3);
-                    copy_properties_from_to(stimuli.image4canvas, region4);
+                    size = 400, 400;
+                    offset_x = floor(width / 2);
+                    offset_y = floor(height / 2);
                 }
 
-                void copy_properties_from_to(GuiItem source, GuiItem target)
+                ImageShape image2
                 {
-                    target.x = source.x_abs;
-                    target.y = source.y_abs;
-                    target.width = source.width;
-                    target.height = source.height;
+                    init()
+                    {
+                        is_visible=true;
+                    }
                 }
             }
 
-            time start_stimulus(time t)
+            CanvasGadget image3canvas
             {
-                reset();
+                init()
+                {
+                    size = 400, 400;
+                    offset_x = floor(width / 2);
+                    offset_y = floor(height / 2);
+                }
 
-                // Prepare stimulus presentation objects.
-                string[..] filenames;
-                filenames.size = 4;
-
-                filenames[TOP_LEFT] = item.image_filename1;
-                filenames[TOP_RIGHT] = item.image_filename2;
-                filenames[BOTTOM_LEFT] = item.image_filename3;
-                filenames[BOTTOM_RIGHT] = item.image_filename4;
-
-                stimuli.load_all_images(filenames);
- 
-                regions_of_interests.start(t);
-
-                 if(HIGHLIGHT_REGION_OF_INTEREST)
-                    regions_of_interests.highlight_regions();
-
-                // Start picture stimuli.
-                stimuli.start(t);
-
-                // Return stimulus onset time.
-                return stimuli.expected_start_time;
-            } 
-
-            void load_image_into(string filepath, ButtonGadget stim)
-            {
-                stim.fill_pattern_image = filepath;
-                stim.fill_pattern_offset_x = ( stim.width - image_width(filepath) ) /2;
-                stim.fill_pattern_offset_y = ( stim.height - image_height(filepath) ) /2;
+                ImageShape image3
+                {
+                    init()
+                    {
+                        is_visible=true;
+                    }
+                }
             }
 
-            void reset()
+            CanvasGadget image4canvas
             {
-                full_abort();
+                init()
+                {
+                    size = 400, 400;
+                    offset_x = floor(width / 2);
+                    offset_y = floor(height / 2);
+                }
 
-                regions_of_interests.is_visible = false;
-                stimuli.is_visible = false;
-            } 
+                ImageShape image4
+                {
+                    init()
+                    {
+                        is_visible=true;
+                    }
+                }
+            }
+
+            void load_all_images(string[] filenames)
+            {
+                load_image(image1canvas.image1, filenames[TOP_LEFT]);
+                load_image(image2canvas.image2, filenames[TOP_RIGHT]);
+                load_image(image3canvas.image3, filenames[BOTTOM_LEFT]);
+                load_image(image4canvas.image4, filenames[BOTTOM_RIGHT]);
+            }
+
+            void load_image(ImageShape target_image, string filename)
+            {
+                target_image.image = stimuli_dir() + "/images/" + filename;
+
+                target_image.x = floor(-target_image.actual_width / 2);
+                target_image.y = floor(-target_image.actual_height / 2);
+            }
+        }
+
+        FreeLayout regions_of_interests
+        {
+            CanvasGadget[..] regions;
+            int[..] response_codes;
+
+            init()
+            {
+                regions.size = 4;
+                response_codes.size = 4;
+                regions[0] = region1; response_codes[0] = 1;
+                regions[1] = region2; response_codes[1] = 2;
+                regions[2] = region3; response_codes[2] = 3;
+                regions[3] = region4; response_codes[3] = 4;
+            }
+
+            void highlight_regions()
+            {
+                int index = 0;
+                while(index<regions.size)
+                {
+                    regions[index].border_style = BORDER_DOTTED;
+                    regions[index].border = 5;
+                    regions[index].border_color = color:red;
+                    index++;
+                }
+            }
+
+            CanvasGadget region1 {}
+            CanvasGadget region2 {}
+            CanvasGadget region3 {}
+            CanvasGadget region4 {}
+
+            void reload()
+            {
+                copy_properties_from_to(stimuli.image1canvas, region1);
+                copy_properties_from_to(stimuli.image2canvas, region2);
+                copy_properties_from_to(stimuli.image3canvas, region3);
+                copy_properties_from_to(stimuli.image4canvas, region4);
+            }
+
+            void copy_properties_from_to(GuiItem source, GuiItem target)
+            {
+                target.x = source.x_abs;
+                target.y = source.y_abs;
+                target.width = source.width;
+                target.height = source.height;
+            }
+        }
+
+        time start_stimulus(time t)
+        {
+            reset();
+
+            // Prepare stimulus presentation objects.
+            string[..] filenames;
+            filenames.size = 4;
+
+            filenames[TOP_LEFT] = item.image_filename1;
+            filenames[TOP_RIGHT] = item.image_filename2;
+            filenames[BOTTOM_LEFT] = item.image_filename3;
+            filenames[BOTTOM_RIGHT] = item.image_filename4;
+
+            stimuli.load_all_images(filenames);
+
+            regions_of_interests.start(t);
+
+            if(HIGHLIGHT_REGION_OF_INTEREST)
+                regions_of_interests.highlight_regions();
+
+            // Start picture stimuli.
+            stimuli.start(t);
+
+            // Return stimulus onset time.
+            return stimuli.expected_start_time;
+        } 
+
+        void load_image_into(string filepath, ButtonGadget stim)
+        {
+            stim.fill_pattern_image = filepath;
+            stim.fill_pattern_offset_x = ( stim.width - image_width(filepath) ) /2;
+            stim.fill_pattern_offset_y = ( stim.height - image_height(filepath) ) /2;
+        }
+
+        void reset()
+        {
+            full_abort();
+
+            regions_of_interests.is_visible = false;
+            stimuli.is_visible = false;
+        } 
     }
 
     Timer drift_check_timer
@@ -475,11 +477,12 @@ Page test_page
     Timer save_picture
     {
         string output_directory;
+
         on_event:expire()
         {
             string fn = output_directory + string(item.type) + format(item.id,3) + ".png";
 
-             if(!file_exists(output_directory))
+            if(!file_exists(output_directory))
                 create_dir_tree(output_directory);
 
             println("Flying through to generate pictures of the screen and save it as:\n\t" + fn);
@@ -510,7 +513,7 @@ Page test_page
         // drift-check failure or abort we'll exit to do a recalibration.
         //SetupActionOrder(tref);
 
-         if (item.do_drift_check)
+        if (item.do_drift_check)
             drift_check_timer.start(tref);
         else 
             start_actual_presentation();
@@ -525,7 +528,7 @@ Page test_page
         target = caller;
     }
 
-    void  start_actual_presentation()
+    void start_actual_presentation()
     {
         if (item.record_eye_movements) 
             eyetracker.start_tracking();
@@ -539,9 +542,9 @@ Page test_page
         dur response_delay = max( dur(item.target_onset) + RESPONSE_SHIFT, 0s);
 
         if(RESPONSE_DURATION > 0s)
-           response.start(audstimonset + response_delay, audstimoffset + RESPONSE_DURATION); // auto paced
+            response.start(audstimonset + response_delay, audstimoffset + RESPONSE_DURATION); // auto paced
         else
-             response.start(audstimonset + response_delay, RESPONSE_DURATION); // self paced
+            response.start(audstimonset + response_delay, RESPONSE_DURATION); // self paced
 
         // Always measure relative to target onset.
         response.reference_time = audstimonset + dur(item.target_onset);
