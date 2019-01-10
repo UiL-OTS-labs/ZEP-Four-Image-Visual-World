@@ -37,13 +37,13 @@ Page test_page
     on_event:key_press()
     { 
         if (input_key == KEY_KP_4)
-            response.process_hit(1, event_time);
+            response.process_hit(0, event_time);
         else if (input_key == KEY_KP_5)
-            response.process_hit(2, event_time);
+            response.process_hit(1, event_time);
         else if (input_key == KEY_KP_1)
-            response.process_hit(3, event_time);
+            response.process_hit(2, event_time);
         else if (input_key == KEY_KP_2)
-            response.process_hit(4, event_time);
+            response.process_hit(3, event_time);
         else if (!eyetracker.handle_key(input_key, input_modifiers)) 
             handle_special_key(this, input_key, input_modifiers);
     }
@@ -432,10 +432,10 @@ Page test_page
         // Enable button-box buttons.
         control.target = this;
         control.button_box.disable_buttons();
-        control.button_box.enable_button(0,1);
-        control.button_box.enable_button(3,2);
-        control.button_box.enable_button(1,3);
-        control.button_box.enable_button(2,4);
+        control.button_box.enable_button(0,0);
+        control.button_box.enable_button(3,1);
+        control.button_box.enable_button(1,2);
+        control.button_box.enable_button(2,3);
 
         if(!allow_selection_by_mouse())
             hide_cursor();
