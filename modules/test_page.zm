@@ -535,16 +535,13 @@ Page test_page
 
         time visstimonset = layout.start_stimulus(event_time + DC_VISUAL_DELAY);
 
-        time audstimonset = auditory_stimulus.play(visstimonset + AUDITORY_DELAY);
+        time audstimonset = auditory_stimulus.play(visstimonset);
         time audstimoffset = auditory_stimulus.expected_finish_time;
 
-        // Response window starts at onset of the audio target with a possible shift. 
-        dur response_delay = max( dur(item.target_onset) + RESPONSE_SHIFT, 0s);
-
-        if(RESPONSE_DURATION > 0s)
-            response.start(audstimonset + response_delay, audstimoffset + RESPONSE_DURATION); // auto paced
-        else
-            response.start(audstimonset + response_delay, RESPONSE_DURATION); // self paced
+        if(RESPONSE_DURATION > 0s) // auto paced
+            response.start(audstimonset, audstimoffset + RESPONSE_DURATION);
+        else // self paced
+            response.start(audstimonset, RESPONSE_DURATION);
 
         // Always measure relative to target onset.
         response.reference_time = audstimonset + dur(item.target_onset);
