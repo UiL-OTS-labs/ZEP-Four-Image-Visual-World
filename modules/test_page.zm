@@ -543,8 +543,9 @@ Page test_page
         else // self paced
             response.start(audstimonset, RESPONSE_DURATION);
 
-        // Always measure relative to target onset.
-        response.reference_time = audstimonset + dur(item.target_onset);
+        // Always measure relative to stimulus and not the target onset.
+        // rt from target onset can be computed post hoc.
+        response.reference_time = audstimonset;
     }
 
     bool allow_selection_by_mouse()

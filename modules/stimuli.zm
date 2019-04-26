@@ -40,17 +40,16 @@ enum ScreenLocation
 // Item record used for the test phase item table.
 record TestItem
 {
-    int      id;             // item id
-    ItemType    type;           // item type
-    int             target_onset;      
-    string      image_filename1;          // image stimulus filename
-    string      image_filename2;          // image stimulus filename
-    string      image_filename3;          // image stimulus filename
-    string      image_filename4;          // image stimulus filename
-    string      sound_filename;          // sound stimulus filename
+    int         id;                     // item id
+    ItemType    type;                   // item type
+    string      image_filename1;        // image stimulus filename
+    string      image_filename2;        // image stimulus filename
+    string      image_filename3;        // image stimulus filename
+    string      image_filename4;        // image stimulus filename
+    string      sound_filename;         // sound stimulus filename
     int         expected_answer;
-    bool        record_eye_movements;         // if set, record eye movements
-    bool        do_drift_check;       // if set, perform drift check
+    bool        record_eye_movements;   // if set, record eye movements
+    bool        do_drift_check;         // if set, perform drift check
 }
 
 // Item table used in the practice phase before the test phase.

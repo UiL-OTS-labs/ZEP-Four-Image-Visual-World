@@ -281,7 +281,6 @@ Experiment experiment
                 current_output.trialnum = test.cycle + 1;
                 current_output.id = current_item.id;
                 current_output.type = current_item.type;
-                current_output.target_onset = current_item.target_onset;
 
                 current_output.image_filename1 = current_item.image_filename1;
                 current_output.image_filename2 = current_item.image_filename2;

@@ -1,18 +1,18 @@
-   ### Test phase items ###;;;;;;;;;;;
-index;id;type;target_onset;image_filename1;image_filename2;image_filename3;image_filename4;sound_filename;expected_answer;record_eye_movements;do_drift_check
-0;1;CNDA;0;apple.png;apple.png;apple.png;apple.png;appels.wav;1;true;true
-1;1;CNDB;0;drill.png;apple.png;apple.png;apple.png;appels.wav;2;true;true
-2;1;CNDC;0;hammer.png;apple.png;apple.png;apple.png;appels.wav;3;true;true
-3;1;CNDD;0;lemon.png;apple.png;apple.png;apple.png;appels.wav;4;true;true
-0;2;CNDD;0;drill.png;apple.png;apple.png;apple.png;bomen.wav;1;true;true
-1;2;CNDA;0;apple.png;apple.png;apple.png;apple.png;bomen.wav;2;true;true
-2;2;CNDB;0;hammer.png;apple.png;apple.png;apple.png;bomen.wav;3;true;true
-3;2;CNDC;0;lemon.png;apple.png;apple.png;apple.png;bomen.wav;4;true;true
-0;3;FILL;0;apple.png;apple.png;apple.png;apple.png;fiets.wav;1;false;true
-1;3;FILL;0;apple.png;apple.png;apple.png;apple.png;fiets.wav;2;false;true
-2;3;FILL;0;apple.png;apple.png;apple.png;apple.png;fiets.wav;3;false;true
-3;3;FILL;0;apple.png;apple.png;apple.png;apple.png;fiets.wav;4;false;true
-0;4;FILL;0;hammer.png;apple.png;apple.png;apple.png;tuinman.wav;1;false;true
-1;4;FILL;0;hammer.png;apple.png;apple.png;apple.png;tuinman.wav;2;false;true
-2;4;FILL;0;hammer.png;apple.png;apple.png;apple.png;tuinman.wav;3;false;true
-3;4;FILL;0;hammer.png;apple.png;apple.png;apple.png;tuinman.wav;4;false;true
+"   ### Test phase items ###";;;;;;;;;;
+"index";"id";"type";"image_filename1";"image_filename2";"image_filename3";"image_filename4";"sound_filename";"expected_answer";"record_eye_movements";"do_drift_check"
+0;1;"CNDA";"apple.png";"apple.png";"apple.png";"apple.png";"appels.wav";1;"true";"true"
+1;1;"CNDB";"drill.png";"apple.png";"apple.png";"apple.png";"appels.wav";2;"true";"true"
+2;1;"CNDC";"hammer.png";"apple.png";"apple.png";"apple.png";"appels.wav";3;"true";"true"
+3;1;"CNDD";"lemon.png";"apple.png";"apple.png";"apple.png";"appels.wav";4;"true";"true"
+0;2;"CNDD";"drill.png";"apple.png";"apple.png";"apple.png";"bomen.wav";1;"true";"true"
+1;2;"CNDA";"apple.png";"apple.png";"apple.png";"apple.png";"bomen.wav";2;"true";"true"
+2;2;"CNDB";"hammer.png";"apple.png";"apple.png";"apple.png";"bomen.wav";3;"true";"true"
+3;2;"CNDC";"lemon.png";"apple.png";"apple.png";"apple.png";"bomen.wav";4;"true";"true"
+0;3;"FILL";"apple.png";"apple.png";"apple.png";"apple.png";"fiets.wav";1;"false";"true"
+1;3;"FILL";"apple.png";"apple.png";"apple.png";"apple.png";"fiets.wav";2;"false";"true"
+2;3;"FILL";"apple.png";"apple.png";"apple.png";"apple.png";"fiets.wav";3;"false";"true"
+3;3;"FILL";"apple.png";"apple.png";"apple.png";"apple.png";"fiets.wav";4;"false";"true"
+0;4;"FILL";"hammer.png";"apple.png";"apple.png";"apple.png";"tuinman.wav";1;"false";"true"
+1;4;"FILL";"hammer.png";"apple.png";"apple.png";"apple.png";"tuinman.wav";2;"false";"true"
+2;4;"FILL";"hammer.png";"apple.png";"apple.png";"apple.png";"tuinman.wav";3;"false";"true"
+3;4;"FILL";"hammer.png";"apple.png";"apple.png";"apple.png";"tuinman.wav";4;"false";"true"
