@@ -3,7 +3,7 @@
 rem ----------------------------------------------------------------------------
 
 rem Define required Zep version:
-set ZEP_VER=1.16
+set ZEP_VER=1.17
 
 rem Iff installed at nonstandard location, define installation location here:
 rem set ZEP_DIR=C:\zep

@@ -47,7 +47,7 @@ HISTORY:
 
 \******************************************************************************/
 
-requires 1.16;
+requires 1.17;
 
 //standards:
 import std_windows1;
@@ -73,7 +73,8 @@ Experiment experiment
     {
         //remember, a lot of setting up is already done in session.zm::setup_session()
         show_test_windows();
-        control.button_box.open();
+        if(control.button_box.open() != OK)
+            println("Unable to open the button box.");
         control.button_box.enable_all_buttons(CONTINUE);
     }
 
